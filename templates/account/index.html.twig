@@ -1,0 +1,43 @@
+{% extends 'home/navBar.html.twig' %}
+
+{% block title %}Mon compte - La Broudoute{% endblock %}
+
+{% block content %}
+    <h1>Mon compte</h1>
+    <p>
+        Bienvenue {{ app.user.firstname }},<br>
+        vous retrouverez toutes vos informations personnelles dans cet espace.
+    </p>
+    <hr>
+    <div class="row">
+        {% if is_granted('ROLE_ADMIN') %}           <!-- ROLE_ADMIN defined directly in Phpmyadmin -->
+            <div class="col-md-3">
+                <div class="account-items">
+                        <a href="/admin">Accéder au backoffice administrateur</a>
+                </div>
+            </div>
+        {% endif %}
+
+        <div class="col-md-3">
+            <div class="account-items">
+                <img src="{{ asset('assets/pictures/password.png') }}" alt="Modifier mon mot de passe"><br>
+                <a href="{{ path('account_password') }}">Modifier mon mot de passe</a>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="account-items">
+                <img src="{{ asset('assets/pictures/address.png') }}" alt="Gérer mon adresse"><br>
+                <a href="{{ path('account_address') }}">Gérer mes adresses</a>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="account-items">
+                <img src="{{ asset('assets/pictures/purchase.png') }}" alt="Mes commandes"><br>
+                <a href="{{ path('account_order') }}">Mes commandes</a>
+            </div>
+        </div>
+    </div>
+    <hr>
+           <a href="{{ path('app_logout') }}"><button class="button-design"><span>Déconnexion</span></button></a>
+{% endblock %}

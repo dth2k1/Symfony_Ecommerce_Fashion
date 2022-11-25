@@ -1,0 +1,14 @@
+{% extends 'home/navBar.html.twig' %}
+
+{% block title %}Confirmation de commande - La Broudoute{% endblock %}
+
+{% block content %}
+    <div class="order-form-container">    
+        <h2>Confirmation de commande</h2>
+        <p>
+            Bonjour, nous vous remercions pour votre commande.
+            <hr>
+            Pour suivre votre commande, rendez-vous dans votre espace<a href="{{ path('account_order') }}"> "Mes commandes".</a>
+        </p>
+    </div>
+{% endblock %}
