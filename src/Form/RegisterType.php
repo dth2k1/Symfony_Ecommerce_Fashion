@@ -22,80 +22,70 @@ class RegisterType extends AbstractType
     {
         $builder
             ->add('firstname', TextType::class, [
-                'label' => 'Votre prénom',
+                'label' => 'First Name',
                 'attr' => [
-                    'placeholder' => 'Entrez votre prénom'
+                    'placeholder' => 'Type Your First Name'
                 ],
                 'constraints' => new Length([
                     'min' => 2,
-                    'minMessage' => 'Votre prénom doit faire au minimum {{ limit }} caractères',
+                    'minMessage' => 'Less than {{ limit }} character',
                     // max length allowed by Symfony for security reasons
                     'max' => 30,
                 ]),
             ])
             ->add('lastname', TextType::class, [
-                'label' => 'Votre nom',
+                'label' => 'Last Name',
                 'attr' => [
-                    'placeholder' => 'Entrez votre nom'
+                    'placeholder' => 'Type Your Last Name'
                 ],
                 'constraints' => new Length([
                     'min' => 2,
-                    'minMessage' => 'Votre nom doit faire au minimum {{ limit }} caractères',
+                    'minMessage' => 'Less than {{ limit }} character',
                     // max length allowed by Symfony for security reasons
                     'max' => 30,
                 ]),
             ])
             ->add('email', EmailType::class, [
-                'label' => 'votre email',
+                'label' => 'Email',
                 'attr' => [
-                    'placeholder' => 'Entrez votre adresse mail'
+                    'placeholder' => 'Type Your Email'
                 ]
             ])
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
-                'invalid_message' => 'Le mot de passe et la confirmation doivent être identiques',
-                'label' => 'Votre mot de passe',
+                'invalid_message' => 'Password invalid',
+                'label' => 'Password',
                 'required' => true,
-                'first_options' => [ 
-                    'label' => 'Mot de passe',
+                'first_options' => [
+                    'label' => 'Password',
                     'attr' => [
-                        'placeholder' => "Merci de saisir votre mot de passe."
+                        'placeholder' => "Type your Password"
                     ]
                 ],
-                'second_options' => [ 
-                    'label' => 'Confirmez votre mot de passe',
+                'second_options' => [
+                    'label' => 'Confirm password',
                     'attr' => [
-                        'placeholder' => "Merci de confirmer votre mot de passe."
-                    ]    
+                        'placeholder' => "Type your Confirm Password"
+                    ]
                 ],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Merci de saisir un mot de passe',
+                        'message' => 'Password cant not blank',
                     ]),
                     new Length([
                         'min' => 6,
-                        'minMessage' => 'Votre mot de passe doit faire au minimum {{ limit }} caractères',
+                        'minMessage' => 'password less than {{ limit }} character',
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),
                 ],
             ])
-            ->add('agreeTerms', CheckboxType::class, [
-                'mapped' => false,
-                'label' => "En cochant cette case, vous acceptez notre politique de confidentialité (voir : Mentions légales)",
-                'constraints' => [
-                    new IsTrue([
-                        'message' => 'Vous devez accepter les conditions.',
-                    ]),
-                ],
-            ])
             ->add('submit', SubmitType::class, [
-                'label' => 'Créer mon compte',
+                'label' => 'Signup',
                 'attr' => [
                     'class' => 'btn button-design'
                 ]
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
