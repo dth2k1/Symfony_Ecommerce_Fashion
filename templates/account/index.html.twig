@@ -1,19 +1,19 @@
 {% extends 'home/navBar.html.twig' %}
 
-{% block title %}Mon compte - La Broudoute{% endblock %}
+{% block title %}Account-Fashion{% endblock %}
 
 {% block content %}
-    <h1>Mon compte</h1>
+    <h1>Account</h1>
     <p>
-        Bienvenue {{ app.user.firstname }},<br>
-        vous retrouverez toutes vos informations personnelles dans cet espace.
+        Welcome {{app.user.firstname}} {{app.user.lastname}} <br>
+        you will find all your personal information in this space.
     </p>
     <hr>
     <div class="row">
         {% if is_granted('ROLE_ADMIN') %}           <!-- ROLE_ADMIN defined directly in Phpmyadmin -->
             <div class="col-md-3">
                 <div class="account-items">
-                        <a href="/admin">Accéder au backoffice administrateur</a>
+                        <a href="/admin">Admin Manager</a>
                 </div>
             </div>
         {% endif %}
@@ -21,23 +21,23 @@
         <div class="col-md-3">
             <div class="account-items">
                 <img src="{{ asset('assets/pictures/password.png') }}" alt="Modifier mon mot de passe"><br>
-                <a href="{{ path('account_password') }}">Modifier mon mot de passe</a>
+                <a href="{{ path('account_password') }}">Change password</a>
             </div>
         </div>
 
         <div class="col-md-3">
             <div class="account-items">
                 <img src="{{ asset('assets/pictures/address.png') }}" alt="Gérer mon adresse"><br>
-                <a href="{{ path('account_address') }}">Gérer mes adresses</a>
+                <a href="{{ path('account_address') }}">Change address</a>
             </div>
         </div>
         <div class="col-md-3">
             <div class="account-items">
                 <img src="{{ asset('assets/pictures/purchase.png') }}" alt="Mes commandes"><br>
-                <a href="{{ path('account_order') }}">Mes commandes</a>
+                <a href="{{ path('account_order') }}">My Order</a>
             </div>
         </div>
     </div>
     <hr>
-           <a href="{{ path('app_logout') }}"><button class="button-design"><span>Déconnexion</span></button></a>
+           <a href="{{ path('app_logout') }}"><button class="button-design"><span>Sign out</span></button></a>
 {% endblock %}

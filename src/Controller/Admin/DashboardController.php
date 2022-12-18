@@ -31,7 +31,7 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('La Broudoute');
+            ->setTitle('Fashion');
     }
 
     public function configureMenuItems(): iterable
@@ -43,6 +43,5 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Produits', 'fas fa-tag', Product::class);
         yield MenuItem::linkToCrud('Transporteur', 'fas fa-truck', Carrier::class);
         yield MenuItem::linkToCrud('Carousel', 'fas fa-desktop', Header::class);
-
     }
 }

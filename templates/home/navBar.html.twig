@@ -3,7 +3,7 @@
 {% block navBar %} 
     <div class="logo-container">
         <div class="logo">
-            <a href="{{ path('home') }}"><img src="{{ asset('assets/pictures/logo.png') }}" class="logo" alt="logo-la-broudoute"></a>
+            <a href="{{ path('home') }}"><img src="{{ asset('assets/pictures/2.png') }}" class="logo" alt="logo-fashion"></a>
         </div>
     </div>
     <nav class="container container-nav">
@@ -11,6 +11,9 @@
         <div class="nav-btn">
             <div class="nav-links">
                 <ul class="nav-links-ul">
+                    <li class="nav-link" style="--i: 1.35s">
+                        <a href="{{ path('home') }}" >Home</a>
+                    </li>
                     <li class="nav-link" style="--i: 1.35s">
                         <a href="{{ path('products') }}" >Our products</a>
                     </li>
@@ -27,7 +30,7 @@
                         </div>
                     </li>
                     <li class="nav-link" style="--i: 1.35s">
-                        <a href="{{ path('cart') }}">My basket</a>
+                        <a href="{{ path('cart') }}">My Cart</a>
                     </li>
                 </div>
                 </ul>

@@ -15,17 +15,16 @@ class ProductsController extends AbstractController
 {
 
     /**
-     * @Route("/nos-produits", name="products")
+     * @Route("/list-products", name="products")
      */
     public function index(
         Request $request,
         EntityManagerInterface $manager
-        ): Response
-    {
+    ): Response {
 
         $search = new Search();
         $search->page = $request->get('page', 1);
-        $form= $this->createForm(SearchType::class, $search);
+        $form = $this->createForm(SearchType::class, $search);
         $form->handleRequest($request); // request listening form
         $products = $manager->getRepository(Product::class)->findWithSearch($search); // Cf ProductRepository*/
         /*
@@ -37,18 +36,17 @@ class ProductsController extends AbstractController
         }*/
         return $this->render('products/index.html.twig', [
             'products' => $products,
-            'form'=> $form->createView()
+            'form' => $form->createView()
         ]);
     }
 
     /**
-     * @Route("/produit/{slug}", name="product")
+     * @Route("/product/{slug}", name="product")
      */
     public function show(
         string $slug,
         EntityManagerInterface $manager
-        ): Response
-    {
+    ): Response {
         $product = $manager->getRepository(Product::class)->findOneBySlug($slug);
         $bestProducts = $manager->getRepository(Product::class)->findByIsBest(1);
 
@@ -58,8 +56,7 @@ class ProductsController extends AbstractController
 
         return $this->render('products/show.html.twig', [
             'product' => $product,
-            'bestProducts' =>$bestProducts,
+            'bestProducts' => $bestProducts,
         ]);
-      
     }
 }

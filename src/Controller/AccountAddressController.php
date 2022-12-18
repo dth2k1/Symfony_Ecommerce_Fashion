@@ -14,7 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class AccountAddressController extends AbstractController
 {
     /**
-     * @Route("/compte/adresses", name="account_address")
+     * @Route("/account/address", name="account_address")
      */
     public function index(): Response
     {
@@ -22,14 +22,13 @@ class AccountAddressController extends AbstractController
     }
 
     /**
-     * @Route("/compte/ajouter-une-adresse", name="account_address_add")
+     * @Route("/account/add-address", name="account_address_add")
      */
     public function add(
         Request $request,
         EntityManagerInterface $manager,
         Cart $cart
-        ): Response
-    {
+    ): Response {
         $address = new Address;
         $form = $this->createForm(AddressType::class, $address);
         $form->handleRequest($request);
@@ -45,7 +44,6 @@ class AccountAddressController extends AbstractController
             } else {
                 return $this->redirectToRoute('account_address');
             }
-
         }
 
         return $this->render('account/address_form.html.twig', [
@@ -54,16 +52,15 @@ class AccountAddressController extends AbstractController
     }
 
     /**
-     * @Route("/compte/modifier-une-adresse/{id}", name="account_address_edit")
+     * @Route("/account/edit-address/{id}", name="account_address_edit")
      */
     public function edit(
         Request $request,
         EntityManagerInterface $manager,
         int $id
-        ): Response
-    {
+    ): Response {
         $address = $manager->getRepository(Address::class)->find($id);
-        
+
         if (!$address || $address->getUser() != $this->getUser()) {
             return $this->redirectToRoute('account_address');
         }
@@ -83,15 +80,14 @@ class AccountAddressController extends AbstractController
     }
 
     /**
-     * @Route("/compte/supprimer-une-adresse/{id}", name="account_address_delete")
+     * @Route("/account/delete-address/{id}", name="account_address_delete")
      */
     public function delete(
         EntityManagerInterface $manager,
         int $id
-        ): Response
-    {
+    ): Response {
         $address = $manager->getRepository(Address::class)->find($id);
-        
+
         if ($address && $address->getUser() == $this->getUser()) {
             $manager->remove($address);
             $manager->flush();

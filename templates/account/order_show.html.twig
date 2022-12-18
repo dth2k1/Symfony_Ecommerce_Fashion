@@ -1,22 +1,22 @@
 {% extends 'home/navBar.html.twig' %}
 
-{% block title %}Ma commande - La Broudoute{% endblock %}
+{% block title %}Order-Fashion{% endblock %}
 
 {% block content %}
-    <h1>Ma commande n° {{ order.id }}</h1>
-    <a href="{{path('account_order') }}">Retour vers mes commandes</a><br>
+    <h1>My order {{ order.id }}</h1>
+    <a href="{{path('account_order') }}">Back to list orders</a><br>
 
-    <strong>Commande passée le : </strong> {{ order.createdAt|format_datetime() }}<br>
-    <strong>Référence de la commande : </strong> {{ order.reference }}<br>
-    <strong>Transporteur : </strong> {{ order.carrierName }}<br>
+    <strong>Order placed on: </strong> {{ order.createdAt|format_datetime() }}<br>
+    <strong>Order code : </strong> {{ order.reference }}<br>
+    <strong>Carrier : </strong> {{ order.carrierName }}<br>
     <hr>
-    <strong>Détails :</strong>
+    <strong>Detail :</strong>
     <table class="table table-hover mt-5">
         <thead>
             <tr>
                 <th scope="col">Produit(s)</th>
-                <th scope="col">Quantité</th>
-                <th scope="col">Prix unitaire</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Unit Price</th>
                 <th scope="col">Total</th>
             </tr>
         </thead>
@@ -33,9 +33,9 @@
     </table>
     <hr>
     <div class="text-right">
-        <strong>Sous-total : </strong>{{ (order.getTotal / 100) | number_format(2, ',', '.') }} €<br>
-        <strong>Livraison : </strong>{{ ( order.carrierPrice / 100) | number_format(2, ',', '.') }} €<br>
-        <strong>Ttoal général : </strong>{{ ((order.getTotal + order.carrierPrice) / 100) | number_format(2, ',', '.') }} €
+        <strong>Subtotal : </strong>{{ (order.getTotal / 100) | number_format(2, ',', '.') }} €<br>
+        <strong>Delivery : </strong>{{ ( order.carrierPrice / 100) | number_format(2, ',', '.') }} €<br>
+        <strong>Total : </strong>{{ ((order.getTotal + order.carrierPrice) / 100) | number_format(2, ',', '.') }} €
 
     </div>
 

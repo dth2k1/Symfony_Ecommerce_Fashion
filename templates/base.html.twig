@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="La Broudoute, la boutique qui fait Brou, Brou !!">
+    <meta name="author" content="Fashion">
     <meta name="generator" content="Jekyll v4.1.1">
-    <title>{% block title %} La Broudoute {% endblock %}</title>
+    <title>{% block title %} Fashion {% endblock %}</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -90,9 +90,9 @@
                         <div class="row">
                             <div class="col-md-6 px-4">
                                 <div class="logo-part">
-                                    <a href="{{ path('home') }}"><img src="{{ asset('assets/pictures/logo.png') }}" class="w-75 logo-footer" alt="logo-la-broudoute"></a>
-                                    <p class="p-under-logo-footer">KMA</p>
-                                    <p>141 Chien Thang</p>
+                                    <a href="{{ path('home') }}"><img src="{{ asset('assets/pictures/2.png') }}" class="w-75 logo-footer" alt="Fashion"></a>
+                                    <p class="p-under-logo-footer">Fashion</p>
+                                    <p>Fashion Fashion Fashion</p>
                                 </div>
                             </div>
                             <div class="responsives-col col-md-6 px-4">
@@ -109,7 +109,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <ul>
-                                            <li> <a href="{{ path('legal_notice')}}"> Legal Notice</a> </li>
+                                            <li> <a href="#"> Legal Notice</a> </li>
                                             <li> <a href="#">Help & FAQs</a> </li>
                                             <li> <a href="#"> Returns & exchanges</a> </li>
                                         </ul>
@@ -119,10 +119,10 @@
                             <div class="responsives-col col-md-6 ">
                                 <p class="footer-p-underline"> Follow us</p class="footer-underline">
                                 <div class="social">
-                                    <a href="{{ path('home') }}"><img src="{{ asset('assets/pictures/logo-facebook.png') }}" class="w-14 logo-footer" alt="logo-la-broudoute"></a>
-                                    <a href="{{ path('home') }}"><img src="{{ asset('assets/pictures/logo-instagram.png') }}" class="w-14 logo-footer" alt="logo-la-broudoute"></a>
+                                    <a href="{{ path('home') }}"><img src="{{ asset('assets/pictures/logo-facebook.png') }}" class="w-14 logo-footer" alt="logo-fashion"></a>
+                                    <a href="{{ path('home') }}"><img src="{{ asset('assets/pictures/logo-instagram.png') }}" class="w-14 logo-footer" alt="logo-fashion"></a>
                                 </div>
-                                <p>&copy; 2022 La Broudoute</p>
+                                <p>&copy; 2022 Fashion</p>
                             </div>
                         </div>
                     </div>
@@ -136,6 +136,30 @@
 <script src="{{ asset('assets/js/accordion-home.js') }}"></script>
 <script src="{{ asset('assets/js/fullscreen-picture.js') }}"></script>
 <script src="{{ asset('assets/js/slider.js') }}"></script>
+<div id="fb-root"></div>
+<div id="fb-customer-chat" class="fb-customerchat">
+</div>
 
+<script>
+  var chatbox = document.getElementById('fb-customer-chat');
+  chatbox.setAttribute("page_id", "105817078737500");
+  chatbox.setAttribute("attribution", "biz_inbox");
+</script>
+
+<script>
+  window.fbAsyncInit = function() {
+  FB.init({
+      xfbml            : true,
+      version          : 'v14.0'
+  });
+  };
+  (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+  fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
 </body>
 </html>

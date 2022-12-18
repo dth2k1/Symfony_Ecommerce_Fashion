@@ -16,14 +16,13 @@ class RegisterController extends AbstractController
 {
 
     /**
-     * @Route("/inscription", name="register")
+     * @Route("/register", name="register")
      */
     public function index(
         Request $request,
         EntityManagerInterface $manager,
         UserPasswordHasherInterface $userPasswordHasherInterface
-        ): Response
-    {
+    ): Response {
         $notification = null;
         $user = new User();
         $form = $this->createForm(RegisterType::class, $user);
@@ -34,9 +33,9 @@ class RegisterController extends AbstractController
             $user = $form->getData();
 
             $search_email = $manager->getRepository(User::class)->findOneByEmail($user->getEmail());
-           
+
             // If email is not in the DB
-           if (!$search_email) {
+            if (!$search_email) {
                 // encode the plain password
                 $user->setPassword(
                     $userPasswordHasherInterface->hashPassword(
@@ -50,14 +49,14 @@ class RegisterController extends AbstractController
                 $manager->flush();
 
                 $mail = new Mailjet();
-                $content = "Bonjour ".$user->getFirstname()."<br>"."Bienvenue sur la boutique de la Broudoute - BROU BROU.";
-                $mail->send($user->getEmail(), $user->getFirstname(), 'Bienvenue sur la Broudoute', $content); 
+                $content = "Thank You!" . $user->getFirstname() . "<br>" . "Welcome to Fashion shop ";
+                $mail->send($user->getEmail(), $user->getFirstname(), 'Welcome to Fashion', $content);
 
-                $notification = "Votre inscription s'est correctement déroulée, vous pouvez dès à présent vous connecter à votre compte";
-           } else {
-                $notification = "L'email que vous avez renseigné existe déjà.";
-           }
-           
+                $notification = "Signup successfully, Please login to continue shopping enjoy!";
+            } else {
+                $notification = "Email has been exists";
+            }
+
 
             // do anything else you need here, like send an email
             /* return $this->redirectToRoute('app_login'); */

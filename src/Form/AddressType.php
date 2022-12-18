@@ -17,68 +17,70 @@ class AddressType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Quel nom souhaitez-vous donner à votre adresse',
+                'label' => 'What name would you like to give to your address',
                 'attr' => [
-                    'placeholder' => 'Votre adresse'
+                    'placeholder' => 'Address'
                 ]
             ])
-            ->add('firstname'
-            , TextType::class, [
-                'label' => 'Prénom',
-                'attr' => [
-                    'placeholder' => 'Entrez votre prénom'
+            ->add(
+                'firstname',
+                TextType::class,
+                [
+                    'label' => 'Firstname',
+                    'attr' => [
+                        'placeholder' => 'Type your firstname'
+                    ]
                 ]
-            ])
+            )
             ->add('lastname', TextType::class, [
-                'label' => 'Nom',
+                'label' => 'Lastname',
                 'attr' => [
-                    'placeholder' => 'Entrez votre nom'
+                    'placeholder' => 'Type your Lastname'
                 ]
             ])
             ->add('company', TextType::class, [
-                'label' => 'Votre société (facultatif)',
-                'required' =>false,
+                'label' => 'Your company',
+                'required' => false,
                 'attr' => [
-                    'placeholder' => 'Entrez le nom de votre société'
+                    'placeholder' => 'Type your company'
                 ]
             ])
             ->add('address', TextType::class, [
-                'label' => 'Adresse',
+                'label' => 'address',
                 'attr' => [
-                    'placeholder' => '8 rue des roses ...'
+                    'placeholder' => 'Hanoi...'
                 ]
             ])
             ->add('postal', TextType::class, [
-                'label' => 'Code postale',
+                'label' => 'ZipCode',
                 'attr' => [
-                    'placeholder' => 'Entrez votre code postale'
+                    'placeholder' => 'Type Your zipCode'
                 ]
             ])
             ->add('city', TextType::class, [
-                'label' => 'Ville',
+                'label' => 'City',
                 'attr' => [
-                    'placeholder' => 'Entrez votre ville'
+                    'placeholder' => 'Type your city'
                 ]
             ])
             ->add('country', CountryType::class, [
-                'label' => 'Pays',
+                'label' => 'Country',
                 'attr' => [
-                    'placeholder' => 'Entrez votre pays'
+                    'placeholder' => 'Type your Country'
                 ]
             ])
             ->add('phone', TelType::class, [
-                'label' => 'Votre numéro de téléphone',
+                'label' => 'Phone number',
                 'attr' => [
-                    'placeholder' => 'Entrez votre numéro de téléphone'
+                    'placeholder' => 'type your phone number'
                 ]
             ])
             ->add('submit', SubmitType::class, [
-                'label' => 'Valider mon adresse',
-                'attr' =>[
+                'label' => 'Submit address',
+                'attr' => [
                     'class' => 'btn button-design'
                 ]
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

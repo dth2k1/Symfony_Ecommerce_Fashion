@@ -1,16 +1,16 @@
 {% extends 'home/navBar.html.twig' %}
 
-{% block title %}Mes adresses - La Broudoute{% endblock %}
+{% block title %}Fashion-address{% endblock %}
 
 {% block content %}
-	<h1>Mes adresses</h1>
-	<p>vous pouvez modifier vos adresses dans cet espace</p>
-	<a href="{{ path('account') }}">Retour</a>
+	<h1>My adresses</h1>
+	<p>you can modify your addresses in this space</p>
+	<a href="{{ path('account') }}">Back to my account</a>
 	<hr>
 	{% if app.user.addresses|length == 0%}
 		<p class="text-center mt-5">
-            Vous n'avez pas encore ajouté d'adresses dans votre compte client,
-            pour en ajouter une, veuillez <a href="">cliquer ici.</a>
+            You have not yet added any addresses in your customer account,
+            to add address <a href="">click here.</a>
 		</p>
     {% else %}
         <div class="row">
@@ -22,8 +22,8 @@
                                 {{ address.address }},<br>
                                 {{ address.postal }} - {{ address.city }} - {{ address.country }}
                             </p>
-                            <a href="{{ path('account_address_edit', { 'id' : address.id }) }}">Modifier</a> |
-                            <a href="{{ path('account_address_delete', { 'id' : address.id }) }}">Supprimer</a>
+                            <a href="{{ path('account_address_edit', { 'id' : address.id }) }}">edit</a> |
+                            <a href="{{ path('account_address_delete', { 'id' : address.id }) }}">delete</a>
 
                         </div> 
                     </div>
@@ -31,7 +31,7 @@
             {% endfor %}
         </div>
 	{% endif %}
-    <a href="{{ path('account_address_add') }}" class="button-design mt-5">Ajouter une adresse</a>
+    <a href="{{ path('account_address_add') }}" class="button-design mt-5">add your address</a>
 
 
 {% endblock %}

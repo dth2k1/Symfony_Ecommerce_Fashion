@@ -1,12 +1,12 @@
 {% extends 'home/navBar.html.twig' %}
 
-{% block title %} Valider ma commande - la Broudoute {% endblock %}
+{% block title %} Order-Fashion {% endblock %}
 
 {% block content %}
 
     <div class="order-form-container">
-        <h2>Passer ma commande</h2>
-        <p>Choisissez vos préférences avant de passer votre commande sur la Broudoute</p>
+        <h2>Place my order</h2>
+        <p>Choose your preferences before placing your order on Fashion</p>
         <hr>
         {% set formHtml %}
         {{ form_start(form, {action:path('order_recap')}) }}           {# Returns to the form of the add method of the OrderController #}

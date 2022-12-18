@@ -15,13 +15,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class OrderController extends AbstractController
 {
     /**
-     * @Route("/commande", name="order")
+     * @Route("/order", name="order")
      */
     public function index(Request $request, Cart $cart): Response
     {
         if (!$this->getUser()->getAddresses()->getValues()) {    // Get the Addresses() data of the User() entity
             return $this->redirectToRoute('account_address_add');
-        }     
+        }
 
         $form = $this->createForm(OrderType::class, null, [     // Null because the form is not linked to a class
             'user' => $this->getUser()                          // Retrieve the logged in user
@@ -34,13 +34,13 @@ class OrderController extends AbstractController
     }
 
     /**
-     * @Route("/commande/recapitulatif", name="order_recap", methods={"POST"})
+     * @Route("/order/recapitulatif", name="order_recap", methods={"POST"})
      */
     public function add(
         Request $request,
         EntityManagerInterface $manager,
-        Cart $cart): Response
-    {  
+        Cart $cart
+    ): Response {
         $form = $this->createForm(OrderType::class, null, [     // Null because the form is not linked to a class
             'user' => $this->getUser()                          // Retrieve the logged in user
         ]);
@@ -51,18 +51,18 @@ class OrderController extends AbstractController
             $date = new \DateTimeImmutable();
             $carrier = $form->get('carriers')->getData();       // 'carriers' from OrderType
             $delivery = $form->get('addresses')->getData();     // 'addresses' from OrderType
-            $delivery_content = $delivery->getFirstname().' '.$delivery->getLastName();
-            $delivery_content .= '<br>'.$delivery->getPhone();
-            if($delivery->getCompany()) {
-                $delivery_content .= '<br>'.$delivery->getCompany();
+            $delivery_content = $delivery->getFirstname() . ' ' . $delivery->getLastName();
+            $delivery_content .= '<br>' . $delivery->getPhone();
+            if ($delivery->getCompany()) {
+                $delivery_content .= '<br>' . $delivery->getCompany();
             }
-            $delivery_content .= '<br>'.$delivery->getAddress();
-            $delivery_content .= '<br>'.$delivery->getPostal().' '.$delivery->getCity();
-            $delivery_content .= '<br>'.$delivery->getCountry();
+            $delivery_content .= '<br>' . $delivery->getAddress();
+            $delivery_content .= '<br>' . $delivery->getPostal() . ' ' . $delivery->getCity();
+            $delivery_content .= '<br>' . $delivery->getCountry();
 
             // Register my order : Order()
             $order = new Order();
-            $reference = $date->format('dmY').'-'.uniqid();
+            $reference = $date->format('dmY') . '-' . uniqid();
             $order->setReference($reference);
             $order->setUser($this->getUser());
             $order->setCreatedAt($date);
@@ -92,7 +92,7 @@ class OrderController extends AbstractController
                 'cart' => $cart->getFull(),                          // Retrieves all the data of the Cart entity with the full function
                 'carrier' => $carrier,
                 'delivery' => $delivery_content,
-                'reference'=>$order->getReference()
+                'reference' => $order->getReference()
 
             ]);
         }

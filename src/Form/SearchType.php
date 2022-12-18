@@ -22,7 +22,7 @@ class SearchType extends AbstractType
                 'label' => false,
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'Votre recherche ...',
+                    'placeholder' => 'Product name...',
                     'class' => 'form-control-sm'
                 ]
             ])
@@ -38,23 +38,23 @@ class SearchType extends AbstractType
                 'label'  => false,
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'Prix min'
+                    'placeholder' => 'min'
                 ]
             ])
             ->add('max', NumberType::class, [
                 'label'  => false,
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'Prix max'
+                    'placeholder' => 'max'
                 ]
             ])
             ->add('promo', CheckboxType::class, [
-                'label'  => 'En promotion',
+                'label'  => 'Voucher',
                 'required' => false,
             ])
 
             ->add('submit', SubmitType::class, [
-                'label'  => 'filtrer',
+                'label'  => 'filter',
                 'attr' => [
                     'class' => 'btn-block button-design'
                 ]
