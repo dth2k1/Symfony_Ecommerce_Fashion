@@ -20,7 +20,7 @@ class HeaderCrudController extends AbstractCrudController
         return [
             TextField::new('title', 'Carousel title'),
             TextareaField::new('content', 'carousel content'),
-            TextField::new('btnTitle', 'Titre button'),
+            TextField::new('btnTitle', 'Title button'),
             TextField::new('btnUrl', 'Destination URL button'),
             ImageField::new('illustration')
                 ->setBasePath('uploads/')
