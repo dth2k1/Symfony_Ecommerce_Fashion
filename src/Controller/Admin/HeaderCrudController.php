@@ -18,15 +18,15 @@ class HeaderCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('title', 'Titre du carousel'),
-            TextareaField::new('content', 'contenu du carousel'),
-            TextField::new('btnTitle', 'Titre de notre bouton'),
-            TextField::new('btnUrl', 'Url de destination de notre bouton'),
+            TextField::new('title', 'Carousel title'),
+            TextareaField::new('content', 'carousel content'),
+            TextField::new('btnTitle', 'Titre button'),
+            TextField::new('btnUrl', 'Destination URL button'),
             ImageField::new('illustration')
-            ->setBasePath('uploads/')
-            ->setUploadDir('public/uploads/')
-            ->setUploadedFileNamePattern('[randomhash].[extension]')    // The way to hash the name
-            ->setRequired(false),
+                ->setBasePath('uploads/')
+                ->setUploadDir('public/uploads/')
+                ->setUploadedFileNamePattern('[randomhash].[extension]')    // The way to hash the name
+                ->setRequired(false),
         ];
     }
 }
