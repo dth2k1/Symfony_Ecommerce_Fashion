@@ -13,12 +13,13 @@ class CartController extends AbstractController
 {
 
     private $entityManager;
-    public function __construct(EntityManagerInterface $entityManager) {
+    public function __construct(EntityManagerInterface $entityManager)
+    {
         $this->entityManager = $entityManager;
     }
 
     /**
-     * @Route("/mon-panier", name="cart")
+     * @Route("/my-cart", name="cart")
      */
     public function index(Cart $cart): Response
     {
@@ -40,7 +41,7 @@ class CartController extends AbstractController
     /**
      * @Route("/cart/remove", name="remove_my_cart")
      */
-    public function remove( Cart $cart): Response
+    public function remove(Cart $cart): Response
     {
         $cart->remove();
 

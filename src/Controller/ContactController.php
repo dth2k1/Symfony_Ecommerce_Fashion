@@ -13,25 +13,24 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ContactController extends AbstractController
 {
     /**
-     * @Route("/nous-contacter", name="contact")
+     * @Route("/contactus", name="contact")
      */
     public function index(
         Request $request,
         EntityManagerInterface $manager
-        ): Response
-    {
+    ): Response {
         $form = $this->createForm(ContactType::class);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $this->addFlash('notice', 'merci de nous avoir contacté, notre équipe va vous répondre dans les meilleurs délais');
+            $this->addFlash('notice', 'thank you for contacting us, our team will answer you as soon as possible');
             $formData = $form->getData();
 
-            $content = "Bonjour, <br/>Vous avez une nouvelle demande de contact de ".$formData['nom']. ' ' .$formData['prenom']."<br>"."<br>".
-            "Email du client : " .$formData['email']. "<br/>"."<br/>".$formData['content'];
+            $content = "Welcome, <br/>You have a new contact request from" . $formData['nom'] . ' ' . $formData['prenom'] . "<br>" . "<br>" .
+                "Customer email : " . $formData['email'] . "<br/>" . "<br/>" . $formData['content'];
             $mail = new Mailjet();
-            $mail->send('yann.raulet@hotmail.fr', 'La Broudoute', 'Vous avez reçu une nouvelle demande d\'information', $content);          
+            $mail->send('yann.raulet@hotmail.fr', 'La Broudoute', 'You have received a new request for d\'information', $content);
         }
 
         return $this->render('contact/index.html.twig', [

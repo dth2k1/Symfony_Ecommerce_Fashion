@@ -20,7 +20,7 @@
 			<span class="product-page-price">{{ (product.price /100)| number_format(2, ',', '.') }}
 				€</span>
 			<hr class="hr-show-product">
-			<a href="{{ path('add_to_cart', {'id': product.id }) }}"><button class="button-design"><span>Ajouter au panier</span></button></a>
+			<a href="{{ path('add_to_cart', {'id': product.id }) }}"><button class="button-design"><span>Add to cart</span></button></a>
 		
 			<!--VERTICAL ACCORDIONS -->
 			<div class="accordion-container">
@@ -40,17 +40,15 @@
 						<div class="panel-heading" role="tab" id="headingTwo">
 							<h4 class="panel-title">
 								<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-								Expédition</a>
+								Dispatch</a>
 							</h4>
 						</div>
 						<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
 							<div class="panel-body">
-								<p>Adapté à tous type d'environnement :
-									<br>Canadaire, chameau, dauphin,
-									<br>pigeon (attention aux périodes de chasse)...
+								<p>Hello
+									<br>Hello
+									<br>Hello..
 								</p>
-								<p>Même Amaz*n ne peut pas faire plus vite
-								<br>Une preuve ? Commandez !</p>
 							</div>
 						</div>
 					</div>
@@ -63,9 +61,9 @@
 						</div>
 						<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
 							<div class="panel-body">
-								<p>A votre écoute du lundi au vendredi
-								<br>  de 9h à 10 h
-								<br>  et de 14h à 15h</p>
+								<p>Working time
+								<br> 8h-12h AM
+								<br>  1h-6h PM </p>
 							</div>
 						</div>
 					</div>
@@ -73,14 +71,12 @@
 						<div class="panel-heading" role="tab" id="headingFour">
 							<h4 class="panel-title">
 								<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-								Paiement sécurisé</a>
+								Payment Security</a>
 							</h4>
 						</div>
 						<div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
 							<div class="panel-body">
-								Nous garantissons à notre clientèle que nous ne mettons 
-								pas l'argent sous un seul matelats, mais sous plusieurs.
-								Faut pas rigoler avec ça.
+								Payment Security
 							</div>
 						</div>
 					</div>
@@ -90,7 +86,7 @@
 	</div>
 
 	<hr class="hr-product">
-	<h3>Retrouvez les tendances du moment</h3>
+	<h3>Trend Product</h3>
     <div class="row">
         {% for product in bestProducts %}
             <div class="col-6 col-md-3">

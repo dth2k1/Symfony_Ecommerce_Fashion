@@ -19,49 +19,48 @@ class ChangePasswordType extends AbstractType
         $builder
             ->add('email', EmailType::class, [
                 'disabled' => true,         //User cannot change the value
-                'label' => 'Mon adresse mail'
+                'label' => 'My email address'
             ])
             ->add('firstname', TextType::class, [
                 'disabled' => true,
-                'label' => 'Mon prénom'
+                'label' => 'My firstname'
             ])
             ->add('lastname', TextType::class, [
                 'disabled' => true,
-                'label' => 'Mon nom'
+                'label' => 'My lastname'
             ])
-            ->add('old_password', PasswordType::class, [ 
-                'label' => 'Mon mot de passe actuel',
+            ->add('old_password', PasswordType::class, [
+                'label' => 'My current password',
                 'mapped' => false,         // Do not save it in BDD
                 'attr' => [
-                    'placeholder' => 'Veuillez saisir votre mot de passe actuel.'
+                    'placeholder' => 'Type current password'
                 ]
             ])
             ->add('new_password', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'mapped' => false,
-                'invalid_message' => 'Le nouveau mot de passe et la confirmation doivent être identiques',
-                'label' => 'Mon nouveau mot de passe',
+                'invalid_message' => 'The new password and the confirmation must be identical',
+                'label' => 'New password',
                 'required' => true,
                 'first_options' => [
-                    'label' => 'Mon nouveau mot de passe',
+                    'label' => 'New password',
                     'attr' => [
-                        'placeholder' => "Merci de saisir votre nouveau mot de passe."
+                        'placeholder' => "Type your new password"
                     ]
                 ],
                 'second_options' => [
-                    'label' => 'Confirmez votre nouveau mot de passe',
+                    'label' => 'Confirm new password',
                     'attr' => [
-                        'placeholder' => "Merci de confirmer votre nouveau mot de passe."
+                        'placeholder' => "Type Confirm new password"
                     ]
                 ]
             ])
             ->add('submit', SubmitType::class, [
-                'label' => "Mettre à jour",
+                'label' => "Update password",
                 'attr' => [
                     'class' => 'btn button-design'
                 ]
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

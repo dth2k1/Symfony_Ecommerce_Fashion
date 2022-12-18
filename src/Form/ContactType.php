@@ -16,33 +16,32 @@ class ContactType extends AbstractType
     {
         $builder
             ->add('prenom', TextType::class, [
-                'label' => 'Votre prénom',
+                'label' => 'Firstname',
                 'attr' => [
-                    'placeholder' => 'Merci de saisir votre prénom'
+                    'placeholder' => 'Type Your First Name'
                 ]
             ])
             ->add('nom', TextType::class, [
-                'label' => 'Votre nom',
+                'label' => 'Lastname',
                 'attr' => [
-                    'placeholder' => 'Merci de saisir votre nom'
+                    'placeholder' => 'Type Your Last Name'
                 ]
             ])
             ->add('email', EmailType::class, [
-                'label' => 'Votre email',
+                'label' => 'Email',
                 'attr' => [
-                    'placeholder' => 'Merci de saisir votre email'
+                    'placeholder' => 'Type Your Email'
                 ]
             ])
             ->add('content', TextareaType::class, [
-                'label' => 'Votre message'
+                'label' => 'Message'
             ])
             ->add('submit', SubmitType::class, [
-                'label' => 'Envoyer',
+                'label' => 'Send',
                 'attr' => [
                     'class' => 'btn button-design'
                 ]
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

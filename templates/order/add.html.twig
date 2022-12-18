@@ -1,19 +1,19 @@
 {% extends 'home/navBar.html.twig' %}
 
-{% block title %} Récapitulatif de ma commande - la Broudoute {% endblock %}
+{% block title %}Order-Fashion {% endblock %}
 
 {% block content %}
 
-    <h2 class="order-summary-title">Récapitulatif de ma commande</h2>
-    <p class="order-summary-subtitle">Vérifiez vos informations avant de passer au paiement de votre commande</p>
+    <h2 class="order-summary-title">Summary of my order</h2>
+    <p class="order-summary-subtitle">Verify your information before paying for your order</p>
     <hr>
     <div class="row">
         <div class="col-md-6">
-            <p class="order-summary-title"> Mon adresse de livraison</p>
+            <p class="order-summary-title">my delivery address</p>
             <div class="order-summary mt-2">
                 {{ delivery|raw }}
             </div>
-            <p class="order-summary-title">Mon transporteur</p>
+            <p class="order-summary-title">My carrier</p>
             <div class="order-summary">
                 {{ carrier.name }}<br>
                 {{ carrier.description }}<br>
@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <p class="order-summary-title">Ma commande</p>
+            <p class="order-summary-title">Order detail</p>
             <div class="order-products-summary">
                 {% set total = null %}
                 {% for key, product in cart %}                                  {# the key to be able to count the products #}
@@ -45,8 +45,8 @@
                 {% endfor %}
             </div>
             
-            <strong>Sous-total : </strong>{{ (total / 100)|number_format(2, ',', '.') }} € <br>         {# At each iteration, total + (price * quantity) #}
-            <strong>Livraison : </strong>{{ (carrier.price / 100)|number_format(2, ',', '.') }} € 
+            <strong>SubTotal: </strong>{{ (total / 100)|number_format(2, ',', '.') }} € <br>         {# At each iteration, total + (price * quantity) #}
+            <strong>Delivery : </strong>{{ (carrier.price / 100)|number_format(2, ',', '.') }} € 
             <hr>
             <strong>Total : </strong>{{ ((total / 100)+ (carrier.price / 100))|number_format(2, ',', '.') }} € <br>
         

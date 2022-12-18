@@ -18,7 +18,7 @@ class OrderType extends AbstractType
 
         $builder
             ->add('addresses', EntityType::class, [
-                'label' => 'Choisissez votre adresse de livraison',
+                'label' => 'Choose your delivery address',
                 'required' => true,
                 'class' => Address::class,
                 'choices' => $user->getAddresses(),
@@ -29,7 +29,7 @@ class OrderType extends AbstractType
                 ]
             ])
             ->add('carriers', EntityType::class, [
-                'label' => 'Choisissez votre transporteur',
+                'label' => 'Choose your carrier',
                 'required' => true,
                 'class' => Carrier::class,
                 'multiple' => false,
@@ -39,18 +39,17 @@ class OrderType extends AbstractType
                 ]
             ])
             ->add('submit', SubmitType::class, [
-                'label' => 'Valider ma commande',
+                'label' => 'Valider my order',
                 'attr' => [
                     'class' => 'btn button-design'
                 ]
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'user' =>array()                    // Configure your form options here
+            'user' => array()                    // Configure your form options here
         ]);
     }
 }

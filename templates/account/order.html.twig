@@ -1,22 +1,22 @@
 {% extends 'home/navBar.html.twig' %}
 
-{% block title %}Mes commandes - La Broudoute{% endblock %}
+{% block title %}Fashion-Order{% endblock %}
 
 {% block content %}
-    <h1>Mes commandes</h1>
-	<p>Vous retrouverez la liste de vos commandes dans cet espace.</p>
-	<a href="{{ path('account') }}">Retour</a>
+    <h1>My orders</h1>
+	<p>You will find the list of your orders in this space.</p>
+	<a href="{{ path('account') }}">Back account</a>
 	{% if app.user.orders|length == 0%}
     	<hr>
 		<p class="text-center mt-5">
-            Vous n'avez pas encore passé de commandes.</a>
+            You haven't placed any orders yet.</a>
 		</p>
     {% else %}
          <table class="table table-hover mt-5">
             <thead>
                 <tr>
-                    <th scope="col">Commande passée le</th>
-                    <th scope="col">Produits</th>
+                    <th scope="col">Order placed on</th>
+                    <th scope="col">Products</th>
                     <th scope="col">Total</th>
                     <th scope="col"></th>
                 </tr>
@@ -27,7 +27,7 @@
                         <td>{{ order.createdAt|format_datetime() }}</td>
                         <td>{{ order.orderDetails|length }}</td>
                         <td>{{ ((order.carrierPrice + order.getTotal) / 100)|number_format(2,',','.')}} €</td>
-                        <td><a href="{{path('account_order_show', { id : order.id }) }}">Détail</a></td>
+                        <td><a href="{{path('account_order_show', { id : order.id }) }}">Detail</a></td>
                     </tr>
                 {% endfor %}
             </tbody>

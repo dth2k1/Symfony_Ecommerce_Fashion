@@ -1,6 +1,6 @@
 {% extends 'home/navBar.html.twig' %}
 
-{% block title %}Connexion - La Broudoute{% endblock %}
+{% block title %}Login{% endblock %}
 
 {% block content %}
     <div class="login-form-container">
@@ -15,11 +15,11 @@
                 </div>
             {% endif %}
 
-            <h1 class="mb-5 font-weight-normal">Connexion</h1>
-            <label for="inputEmail">Votre email</label>
-            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Votre email" autocomplete="email" required autofocus>
-            <label for="inputPassword">Votre mot de passe</label>
-            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Votre mot de passe" autocomplete="current-password" required>
+            <h1 class="mb-5 font-weight-normal">Login</h1>
+            <label for="inputEmail">Your Email</label>
+            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Your email" autocomplete="email" required autofocus>
+            <label for="inputPassword">Your password</label>
+            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Your password" autocomplete="current-password" required>
 
             <input type="hidden" name="_csrf_token"
                 value="{{ csrf_token('authenticate') }}"
@@ -35,9 +35,9 @@
                     </label>
                 </div>
             #}
-            <button class="button-design mt-5" type="submit" >Se connecter</button>
+            <button class="button-design mt-5" type="submit" >Login</button>
             <hr>
-            <p class="text-center">Vous n'avez pas encore de compte ? <br><a href="{{path('register') }}"> créer votre compte</a></p>
+            <p class="text-center">You are have account ?<br><a href="{{path('register') }}"> create account </a></p>
         </form>
     </div>
 {% endblock %}
