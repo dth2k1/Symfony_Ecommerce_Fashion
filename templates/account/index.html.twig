@@ -13,27 +13,28 @@
         {% if is_granted('ROLE_ADMIN') %}           <!-- ROLE_ADMIN defined directly in Phpmyadmin -->
             <div class="col-md-3">
                 <div class="account-items">
-                        <a href="/admin">Admin Manager</a>
+                    <img src="{{ asset('assets/pictures/admin.png') }}" width="32px;" height="32px;" style="mix-blend-mode: multiply;" alt="admin"><br>
+                    <a href="/admin">Admin Manager</a>
                 </div>
             </div>
         {% endif %}
 
         <div class="col-md-3">
             <div class="account-items">
-                <img src="{{ asset('assets/pictures/password.png') }}" alt="Modifier mon mot de passe"><br>
+                <img src="{{ asset('assets/pictures/password.png') }}" alt="password"><br>
                 <a href="{{ path('account_password') }}">Change password</a>
             </div>
         </div>
 
         <div class="col-md-3">
             <div class="account-items">
-                <img src="{{ asset('assets/pictures/address.png') }}" alt="Gérer mon adresse"><br>
+                <img src="{{ asset('assets/pictures/address.png') }}" alt="address"><br>
                 <a href="{{ path('account_address') }}">Change address</a>
             </div>
         </div>
         <div class="col-md-3">
             <div class="account-items">
-                <img src="{{ asset('assets/pictures/purchase.png') }}" alt="Mes commandes"><br>
+                <img src="{{ asset('assets/pictures/purchase.png') }}" alt="order"><br>
                 <a href="{{ path('account_order') }}">My Order</a>
             </div>
         </div>

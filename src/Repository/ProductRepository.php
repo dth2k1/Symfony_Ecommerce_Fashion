@@ -29,7 +29,8 @@ class ProductRepository extends ServiceEntityRepository
      * Request that allows me to retrieve products based on user research
      * @return PaginationInterface
      */
-    public function findWithSearch(Search $search): PaginationInterface {                // Create request
+    public function findWithSearch(Search $search): PaginationInterface
+    {                // Create request
         $query = $this
             ->createQueryBuilder('p')                               // Mapping with Product table
             ->select('c', 'p')                                      // Select Category and Products in this query
@@ -50,16 +51,16 @@ class ProductRepository extends ServiceEntityRepository
         if (!empty($search->min)) {                                 // min price search
             $query = $query
                 ->andWhere('p.price >= :min')
-                ->setParameter('min', $search->min*100);            // *100 because recorded in float in DB (EasyAdmin multiply *100)
+                ->setParameter('min', $search->min * 100);            // *100 because recorded in float in DB (EasyAdmin multiply *100)
         }
 
         if (!empty($search->max)) {
             $query = $query
                 ->andWhere('p.price <= :max')
-                ->setParameter('max', $search->max*100);
+                ->setParameter('max', $search->max * 100);
         }
 
-        if (!empty($search->promo)) {                                 
+        if (!empty($search->promo)) {
             $query = $query
                 ->andWhere('p.promo =  1');                           // cf Class/search.php           
         }
@@ -69,7 +70,7 @@ class ProductRepository extends ServiceEntityRepository
         return $this->paginator->paginate(
             $query,
             $search->page,
-            6           // Number of items by page
+            3          // Number of items by page
         );
     }
 

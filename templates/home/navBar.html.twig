@@ -23,7 +23,7 @@
                     <li class="nav-link" style="--i: 1.35s">
                         <div class="navbar-item-custom">
                             {% if is_granted('ROLE_USER') %} 
-                                <a class="" href="{{ path('account')}}">My account ({{ app.user.firstname }})</a>
+                                <a class="" href="{{ path('account')}}">My account ({{ app.user.firstname }} {{ app.user.lastname }})</a>
                             {% else %}
                                 <a href="{{ path('app_login')}}">My account</a>
                             {% endif %}
