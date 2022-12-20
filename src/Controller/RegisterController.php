@@ -44,7 +44,7 @@ class RegisterController extends AbstractController
                         $form->get('password')->getData()
                     )
                 );
-
+                //push to database
                 $manager->persist($user);
                 $manager->flush();
 

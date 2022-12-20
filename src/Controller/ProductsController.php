@@ -21,7 +21,7 @@ class ProductsController extends AbstractController
         Request $request,
         EntityManagerInterface $manager
     ): Response {
-
+        //show full product
         $search = new Search();
         $search->page = $request->get('page', 1);
         $form = $this->createForm(SearchType::class, $search);
@@ -47,6 +47,7 @@ class ProductsController extends AbstractController
         string $slug,
         EntityManagerInterface $manager
     ): Response {
+        //product detail
         $product = $manager->getRepository(Product::class)->findOneBySlug($slug);
         $bestProducts = $manager->getRepository(Product::class)->findByIsBest(1);
 
