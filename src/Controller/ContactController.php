@@ -30,7 +30,7 @@ class ContactController extends AbstractController
             $content = "Welcome, <br/>You have a new contact request from" . $formData['nom'] . ' ' . $formData['prenom'] . "<br>" . "<br>" .
                 "Customer email : " . $formData['email'] . "<br/>" . "<br/>" . $formData['content'];
             $mail = new Mailjet();
-            $mail->send('yann.raulet@hotmail.fr', 'La Broudoute', 'You have received a new request for d\'information', $content);
+            $mail->send('gblhiep@gmail.com', 'Fashion', 'You have received a new request for d\'information', $content);
         }
 
         return $this->render('contact/index.html.twig', [
