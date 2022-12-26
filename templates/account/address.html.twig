@@ -10,7 +10,7 @@
 	{% if app.user.addresses|length == 0%}
 		<p class="text-center mt-5">
             You have not yet added any addresses in your customer account,
-            to add address <a href="">click here.</a>
+            to add address <a href="{{ path('account_address_add')}}">click here.</a>
 		</p>
     {% else %}
         <div class="row">

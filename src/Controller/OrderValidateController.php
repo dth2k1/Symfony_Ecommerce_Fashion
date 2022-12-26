@@ -32,13 +32,13 @@ class OrderValidateController extends AbstractController
             // Empty the "cart" session
             $cart->remove();
             // Modify the status isPaid of the order with 1
-            $order->setIsPaid(1);
+            // $order->setIsPaid(1);
             $manager->flush();
         }
         // Order confirmation by email
-        $mail = new Mailjet();
-        $content = "Hello " . $order->getUser()->getFirstname() . "<br>" . "Thank you for your order on the Fashion";
-        $mail->send($order->getUser()->getEmail(), $order->getUser()->getFirstname(), 'Your Fashion order has been confirmed.', $content);
+        // $mail = new Mailjet();
+        // $content = "Hello " . $order->getUser()->getFirstname() . "<br>" . "Thank you for your order on the Fashion";
+        // $mail->send($order->getUser()->getEmail(), $order->getUser()->getFirstname(), 'Your Fashion order has been confirmed.', $content);
 
         return $this->render('order_validate/index.html.twig', [
             'order' => $order
